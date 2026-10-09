@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Handout · Side Projects, Freelance Gigs, and Career Pathways</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="redbar"></div>
+<header class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><img src="assets/elevate-logo-dark.png" alt="Illinois Tech Elevate"> Side Projects, Freelance Gigs, and Career Pathways</a>
+  <nav><a href="index.html">Home</a><a href="slides.html">Slides</a><a class="active" href="handout.html">Handout</a><a href="poll.html">Poll</a><a href="qa.html">Q&amp;A</a><a href="resources.html">Resources</a></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Student worksheet</div>
+  <h1>Scope one project and date the first step today</h1>
+  <p class="lead">Everything you type saves on this device. When you're done, download it, email it to Career Services, or print it. Nothing is sent anywhere until you choose to send it.</p>
+  <p class="noprint"><button class="btn" onclick="exportText()">Download my worksheet</button> <button class="btn ghost" onclick="emailIt()">Email it to Career Services</button> <button class="btn ghost" onclick="window.print()">Print</button> <button class="btn ghost small" onclick="clearAll()">Clear</button></p>
+</div></section>
+
+<div id="embedForm" class="wrap" style="display:none"></div>
+
+<section class="section"><div class="wrap grid c2"><div class="card"><span class="pill">Step 0</span><h2>About you</h2><label>Name</label><input type="text" data-store="h_name" placeholder="First and last name"><label>Major and year</label><input type="text" data-store="h_major" placeholder="e.g., Business, 2nd year"><label>Illinois Tech email</label><input type="text" data-store="h_email" placeholder="you@hawk.illinoistech.edu"><label>Hours a week I can honestly give this</label><input type="text" data-store="h_hours" placeholder="e.g., 4"></div><div class="card"><span class="pill">Step 1 · 60 seconds</span><h2>The idea</h2><p>One thing you would make, fix, or sell if nobody assigned it. If stuck: the last thing that annoyed you.</p><label>My idea (messy is fine)</label><textarea data-store="h_idea" placeholder=""></textarea><label>Who would use it or pay for it</label><input type="text" data-store="h_who" placeholder=""></div></div></section><section class="section alt"><div class="wrap grid c2"><div class="card"><span class="pill">Step 2 · 2 minutes</span><h2>Your project in two sentences</h2><label>Sentence 1: what it is and who it is for</label><input type="text" data-store="pj1" placeholder="A… for…"><label>Sentence 2: what "done" looks like, and by when</label><input type="text" data-store="pj2" placeholder="Done means… by…"><div class="preview" id="aboutPreview" style="margin-top:12px">Your project description will appear here.</div></div><div class="card"><span class="pill">Step 3 · 8 minutes</span><h2>The scope</h2><label>Appetite: hours a week × weeks (fixed)</label><input type="text" data-store="s_appetite" placeholder="5 hours × 4 weeks = 20 hours"><label>Thinnest slice: the smallest version that works end to end</label><textarea data-store="s_slice" placeholder="One feature, one page, one piece, one client…"></textarea><label>Version two (everything you are NOT doing now)</label><textarea data-store="s_v2" placeholder=""></textarea><label>Ship date</label><input type="text" data-store="s_ship" placeholder=""><label>Where it gets published (repo, Behance, post, listing, demo)</label><input type="text" data-store="s_where" placeholder=""><label>First step, dated this week</label><input type="text" data-store="s_first" placeholder="Saturday: …"><label>Partner's cut: what would you drop to ship in half the time?</label><input type="text" data-store="s_cut" placeholder=""></div></div></section><section class="section"><div class="wrap grid c2"><div class="card"><span class="pill">Step 4 · 3 minutes</span><h2>Your route</h2><label>Where I want this to lead</label><select data-store="r_route"><option value="">Choose…</option><option>Proof for my portfolio</option><option>A paid freelance gig</option><option>A campus startup or research program</option><option>A for-credit pathway course</option><option>Not sure yet</option></select><label>First move on that route (from the slide, in your words)</label><textarea data-store="r_move" placeholder=""></textarea><label>If it's a gig: scope paragraph, price, agreement, invoice — which do I still need?</label><input type="text" data-store="r_gig" placeholder=""></div><div class="card"><span class="pill">Step 5</span><h2>Illinois Tech pathways to explore</h2><p>Pick one to look at this week:</p><ul><li><a href="https://elevate.iit.edu/channels/curriculum-based-pathways/">Elevate Career Pathway courses</a> (for credit: Braven, Virtual Internships, Global Career Accelerator)</li><li><a href="https://www.iit.edu/kaplan/programs/startup-studio">Kaplan Startup Studio</a> and the <a href="https://www.iit.edu/academics/active-learning/idea-shop">Idea Shop</a></li><li><a href="https://catalog.iit.edu/undergraduate/campus-overview/campus-resources/interprofessional-projects/">IPRO</a> (six credit hours of team projects)</li><li><a href="https://elevate.iit.edu/experiences/category/competitions-outside-courses/">Hackathons and competitions</a> · <a href="https://elevate.iit.edu/experiences/entrepreneurial-venture-development-elective-and-optional/">Entrepreneurial Venture Development elective</a></li></ul><label>The pathway I'll look into, and when</label><input type="text" data-store="p_path" placeholder=""></div></div></section>
+<section class="section alt"><div class="wrap grid c2">
+  <div class="card">
+    <span class="pill">Last step</span><h2>Before you leave, take it with you</h2>
+    <p class="hint" style="margin:0 0 10px">Everything above is saved on this device only. Use the buttons at the top to <b>download</b> it as a text file, <b>email</b> it to yourself or to Freddrick, or <b>print</b> it. Then:</p>
+    <div class="check"><input type="checkbox" data-store="c1" id="k1"><label for="k1">Project described in two sentences (what it is, who it is for)</label></div><div class="check"><input type="checkbox" data-store="c2" id="k2"><label for="k2">Appetite fixed: hours per week and a number of weeks</label></div><div class="check"><input type="checkbox" data-store="c3" id="k3"><label for="k3">Thinnest slice named: the smallest version that works end to end</label></div><div class="check"><input type="checkbox" data-store="c4" id="k4"><label for="k4">Ship date and publish location set (repo, post, demo, listing)</label></div><div class="check"><input type="checkbox" data-store="c5" id="k5"><label for="k5">First step dated this week</label></div><div class="check"><input type="checkbox" data-store="c6" id="k6"><label for="k6">One Illinois Tech pathway explored, one-on-one booked</label></div>
+    <p style="margin-top:14px"><a class="btn" id="bookBtn" href="#">Book a one-on-one</a> <a class="btn ghost" id="checkinBtn" href="#">Check in on 312</a></p>
+  </div>
+  <div class="card">
+    <h2>Keep going on Elevate</h2>
+    <p>Hackathons, the AWS Jam, and Forage simulations count as <a href="https://elevate.iit.edu/experiences/category/competitions-outside-courses/">Elevate electives</a>. The <a href="https://elevate.iit.edu/experiences/entrepreneurial-venture-development-elective-and-optional/">Entrepreneurial Venture Development elective</a> takes an idea to a pitch in 20–40 hours. <a href="https://elevate.iit.edu/channels/curriculum-based-pathways/">Pathway courses</a> turn the project into credit.</p>
+    <p class="hint">On <a href="https://elevate.iit.edu/">elevate.iit.edu</a>: <a href="https://elevate.iit.edu/blog/2026/08/18/394225/">AI Career Coach</a> · <a href="https://elevate.iit.edu/channels/create-a-resume-cover-letter/">résumé and cover letter</a> · <a href="https://elevate.iit.edu/channels/find-an-internship-co-op/">internships and co-ops</a> · <a href="https://elevate.iit.edu/channels/free-industry-certifications/">free certifications</a> · <a href="https://elevate.iit.edu/career-coaches/">career coaches</a>.</p>
+  </div>
+</div></section>
+<footer class="footer"><div class="wrap">
+  <div>Career Services and Experiential Learning · Illinois Institute of Technology · MTCC Room 106 · 312.567.6800 · <a href="https://elevate.iit.edu">elevate.iit.edu</a></div>
+  <div>© 2026 Freddrick Logan, PhD · <a href="https://fredlogan.phd">fredlogan.phd</a></div>
+</div></footer>
+<script src="assets/config.js"></script>
+<script src="assets/site.js"></script>
+<script>
+const C = window.PW_CONFIG;
+function sheet(){
+  const g=k=>PW.get(k,'');
+  return `ELEVATE WORKSHOP 4: SIDE PROJECTS, FREELANCE GIGS, AND CAREER PATHWAYS · ${C.eventDate}
+Name: ${g('h_name')}   Major/Year: ${g('h_major')}   Email: ${g('h_email')}
+Hours a week: ${g('h_hours')}
+
+IDEA: ${g('h_idea')}
+FOR: ${g('h_who')}
+
+PROJECT:
+${g('pj1')} ${g('pj2')}
+
+SCOPE
+Appetite: ${g('s_appetite')}
+Slice: ${g('s_slice')}
+Version two: ${g('s_v2')}
+Ship date: ${g('s_ship')}   Published at: ${g('s_where')}
+First step: ${g('s_first')}
+Partner's cut: ${g('s_cut')}
+
+ROUTE: ${g('r_route')}
+First move: ${g('r_move')}
+Gig checklist gaps: ${g('r_gig')}
+
+PATHWAY TO EXPLORE: ${g('p_path')}
+
+CHECKLIST: ${["c1", "c2", "c3", "c4", "c5", "c6"].map((k,i)=>(PW.get(k,false)?'[x]':'[ ]')+' '+(i+1)).join('  ')}`;
+}
+function exportText(){ PW.download('Elevate-Side-Projects-Worksheet.txt', sheet()); }
+function emailIt(){ location.href='mailto:'+C.staffEmail+'?subject='+encodeURIComponent('Side Projects, Freelance Gigs, and Career Pathways worksheet: '+PW.get('h_name',''))+'&body='+encodeURIComponent(sheet()); }
+function clearAll(){ if(confirm('Clear everything you typed on this device?')){ localStorage.removeItem('elevate-side-projects-workshop'); location.reload(); } }
+function prev(){ const a=PW.get('pj1',''),b=PW.get('pj2',''); const el=document.getElementById('aboutPreview'); if(el) el.textContent=(a||b)?(a+' '+b).trim():'Your project description will appear here.'; }
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('bookBtn').href=C.bookingUrl; document.getElementById('checkinBtn').href=C.checkinUrl;
+  document.querySelectorAll('[data-store="pj1"],[data-store="pj2"]').forEach(el=>el.addEventListener('input',prev)); prev();
+  document.querySelectorAll('.check input').forEach(cb=>{ const f=()=>cb.closest('.check').classList.toggle('done',cb.checked); cb.addEventListener('change',f); f(); });
+  if(C.formEmbedUrl){ const d=document.getElementById('embedForm'); d.style.display='block'; d.innerHTML='<div class="card"><h2>Submit your worksheet</h2><iframe src="'+C.formEmbedUrl+'" style="width:100%;height:900px;border:0" allowfullscreen></iframe></div>'; }
+});
+</script>
+</body>
+</html>
