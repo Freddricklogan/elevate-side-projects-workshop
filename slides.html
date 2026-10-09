@@ -96,8 +96,9 @@
   .slide input[type=text],.slide textarea{font-size:18px}
   .on .reveal{animation-play-state:running}
   @media (max-width:760px){.slide{padding:4vh 5vw 70px;overflow:auto;justify-content:flex-start}.cols.two,.vs{grid-template-columns:1fr}.vs .mid{text-align:center}.hud{font-size:12px}}
+  .slide .cols .box:has(.stat){display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 22px}.slide .cols .box .stat small{font-size:clamp(18px,1.8vw,26px);color:var(--ink);margin:14px auto 0;max-width:24ch;line-height:1.3}.slide.ink .cols .box .stat small{color:#E8E5DD}.slide.accent .cols .box .stat small{color:#FFD2D2}
   @media (prefers-reduced-motion: reduce){.draw,.typing,.pages span,.bgart .orb,.slide.on{animation:none;opacity:1;stroke-dashoffset:0;width:auto}}
-.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:6px 0 14px}.tl div{height:14px;border-radius:7px;background:var(--line);transition:background .3s,transform .3s}.tl div.on{background:var(--accent);transform:scaleY(1.6)}
+.slide .cols .box:has(.stat){display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 22px}.slide .cols .box .stat small{font-size:clamp(18px,1.8vw,26px);color:var(--ink);margin:14px auto 0;max-width:24ch;line-height:1.3}.slide.ink .cols .box .stat small{color:#E8E5DD}.slide.accent .cols .box .stat small{color:#FFD2D2}.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:6px 0 14px}.tl div{height:14px;border-radius:7px;background:var(--line);transition:background .3s,transform .3s}.tl div.on{background:var(--accent);transform:scaleY(1.6)}
 </style>
 </head>
 <body>
@@ -146,9 +147,9 @@
   <div class="eyebrow reveal">The next 45 minutes</div>
   <h2 class="reveal">One idea, one scope, one date.</h2>
   <div class="cols">
-    <div class="box reveal"><p class="stat" style="font-size:clamp(40px,5vw,72px)">1<small>idea: finished beats perfect, dated beats someday</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(40px,5vw,72px)">1<small>scope you can ship in weeks, not semesters</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(40px,5vw,72px)">1<small>first step with a date on it, this week</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Pick one idea: finished beats perfect, dated beats someday</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Scope it to ship in weeks, not semesters</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(60px,7.5vw,120px)">1<small>Date the first step, this week</small></p></div>
   </div>
   <p class="lead reveal" style="margin-top:22px">Hold one idea in mind now. By 0:33 you will have cut it down to something you can actually finish.</p>
 </section>
@@ -180,7 +181,7 @@
       <input type="text" data-store="pj1" placeholder="A one-page site that tells Illinois Tech commuters which Metra train to catch…">
       <label>Sentence 2: what "done" looks like, and by when</label>
       <input type="text" data-store="pj2" placeholder="Done means it&#x27;s live and three friends have used it, by December 12.">
-      <p class="quiet">Two minutes of silence. A volunteer reads theirs; we type it here.</p>
+      <p class="quiet">Write in silence for two minutes. Then one volunteer reads theirs aloud and we type it here.</p>
     </div>
     <div class="box reveal"><p class="quiet" style="margin:0 0 8px">Live preview</p><div class="preview" id="aboutPreview" style="font-size:clamp(18px,2vw,26px);font-family:var(--serif)">Your project description will appear here.</div><p><button class="btn small" onclick="PW.copy(document.getElementById('aboutPreview').textContent)">Copy</button></p></div>
   </div>
@@ -242,9 +243,9 @@
   <div class="eyebrow reveal">Ideas you already have</div>
   <h2 class="reveal">The project is already in your week. It just isn't scoped.</h2>
   <div class="cols">
-    <div class="box reveal"><p class="stat" style="font-size:clamp(36px,4.6vw,64px)">Class<small>the assignment you wished worked differently, the tool your lab is missing, the IPRO problem nobody picked</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(36px,4.6vw,64px)">Elevate<small>hackathons and competitions, the AWS Jam, Forage simulations, the venture elective, the Kaplan Pitch Tank</small></p></div>
-    <div class="box reveal"><p class="stat" style="font-size:clamp(36px,4.6vw,64px)">Life<small>a club's broken process, a family business, a hobby with a website that doesn't exist yet</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Class<small>Fix the assignment that annoyed you, build the tool your lab is missing, pitch the IPRO problem nobody picked</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Elevate<small>Enter a hackathon or the AWS Jam, start a Forage simulation, take the venture elective, pitch at Kaplan Pitch Tank</small></p></div>
+    <div class="box reveal"><p class="stat" style="font-size:clamp(44px,5.2vw,80px)">Life<small>Fix your club's broken process, build the family business a site, give your hobby the page it lacks</small></p></div>
   </div>
   <div class="ask reveal" style="margin-top:18px">Ask the room</div>
   <p class="lead reveal">Name one thing that annoyed you this semester that you could fix in four weeks.</p>
@@ -273,7 +274,7 @@
   <div class="eyebrow reveal">0:41 · Before you leave</div>
   <h2 class="reveal">What leaves the room with you.</h2>
   <div class="cols two">
-    <div class="box reveal"><div class="check"><input type="checkbox" data-store="c1" id="c1"><label for="c1">Project described in two sentences (what it is, who it is for)</label></div><div class="check"><input type="checkbox" data-store="c2" id="c2"><label for="c2">Appetite fixed: hours per week and a number of weeks</label></div><div class="check"><input type="checkbox" data-store="c3" id="c3"><label for="c3">Thinnest slice named: the smallest version that works end to end</label></div><div class="check"><input type="checkbox" data-store="c4" id="c4"><label for="c4">Ship date and publish location set (repo, post, demo, listing)</label></div><div class="check"><input type="checkbox" data-store="c5" id="c5"><label for="c5">First step dated this week</label></div><div class="check"><input type="checkbox" data-store="c6" id="c6"><label for="c6">One Illinois Tech pathway explored, one-on-one booked</label></div></div>
+    <div class="box reveal"><div class="check"><input type="checkbox" data-store="c1" id="c1"><label for="c1">Describe your project in two sentences (what it is, who it is for)</label></div><div class="check"><input type="checkbox" data-store="c2" id="c2"><label for="c2">Fix the appetite: hours per week and a number of weeks</label></div><div class="check"><input type="checkbox" data-store="c3" id="c3"><label for="c3">Name the thinnest slice: the smallest version that works end to end</label></div><div class="check"><input type="checkbox" data-store="c4" id="c4"><label for="c4">Set the ship date and publish location (repo, post, demo, listing)</label></div><div class="check"><input type="checkbox" data-store="c5" id="c5"><label for="c5">Date the first step this week</label></div><div class="check"><input type="checkbox" data-store="c6" id="c6"><label for="c6">Explore one Illinois Tech pathway and book a one-on-one</label></div></div>
     <div class="box reveal"><p class="quiet" style="margin:0 0 6px">Keep going</p><p>Book a one-on-one: <a id="bookLink" href="#">30 minutes with Career Services</a></p><p><a href="https://www.iit.edu/kaplan/programs/startup-studio">Kaplan Startup Studio</a> · <a href="https://elevate.iit.edu/channels/curriculum-based-pathways/">Elevate pathway courses</a> · <a href="https://elevate.iit.edu/experiences/category/competitions-outside-courses/">Hackathons and competitions</a></p></div>
   </div>
 </section>
