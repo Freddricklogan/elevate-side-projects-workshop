@@ -12,7 +12,7 @@
   .deck{position:relative;height:100vh;width:100vw}
   .bgart{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
   .bgart .orb{position:absolute;border-radius:50%;filter:blur(40px);opacity:.55;animation:drift 22s ease-in-out infinite alternate}
-  .bgart .o1{width:48vw;height:48vw;right:-12vw;top:-18vw;background:radial-gradient(closest-side,var(--accent-soft),transparent 70%)}
+  .bgart .o1{width:48vw;height:48vw;right:-12vw;top:-18vw;background:radial-gradient(closest-side,rgba(118,119,123,.14),transparent 70%)}
   .bgart .o2{width:36vw;height:36vw;left:-10vw;bottom:-14vw;background:radial-gradient(closest-side,rgba(255,153,0,.10),transparent 70%);animation-delay:-9s}
   .bgart .grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.28;mask-image:radial-gradient(ellipse at 70% 30%,#000 0%,transparent 70%)}
   .slide{position:absolute;inset:0;display:none;padding:5vh 7vw 70px;flex-direction:column;justify-content:center;z-index:1;overflow:auto}
@@ -75,7 +75,7 @@
   .cs .ttl{font-family:var(--serif);font-weight:600;font-size:clamp(18px,1.9vw,26px);color:var(--ink);margin:0 0 10px;line-height:1.15}
   .cs .f{display:grid;grid-template-columns:86px 1fr;gap:6px 10px;font-size:clamp(13px,1.15vw,16px);line-height:1.35;margin:0 0 6px}
   .cs .f b{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);padding-top:3px}
-  .cs .f .num{background:var(--accent-soft);color:var(--accent);font-weight:700;padding:0 5px;border-radius:5px}
+  .cs .f .num{color:var(--accent);font-weight:700;border-bottom:2px solid var(--accent)}
   .cs .visual{background:var(--surface-2);border-left:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;gap:8px}
   .cs .visual svg{width:100%;height:auto;max-height:150px}
   .cs .visual small{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
@@ -99,6 +99,36 @@
   .slide .cols .box:has(.stat){display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 22px}.slide .cols .box .stat small{font-size:clamp(18px,1.8vw,26px);color:var(--ink);margin:14px auto 0;max-width:24ch;line-height:1.3}.slide.ink .cols .box .stat small{color:#E8E5DD}.slide.accent .cols .box .stat small{color:#FFD2D2}
   @media (prefers-reduced-motion: reduce){.draw,.typing,.pages span,.bgart .orb,.slide.on{animation:none;opacity:1;stroke-dashoffset:0;width:auto}}
 .slide .cols .box:has(.stat){display:flex;align-items:center;justify-content:center;text-align:center;padding:30px 22px}.slide .cols .box .stat small{font-size:clamp(18px,1.8vw,26px);color:var(--ink);margin:14px auto 0;max-width:24ch;line-height:1.3}.slide.ink .cols .box .stat small{color:#E8E5DD}.slide.accent .cols .box .stat small{color:#FFD2D2}.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:6px 0 14px}.tl div{height:14px;border-radius:7px;background:var(--line);transition:background .3s,transform .3s}.tl div.on{background:var(--accent);transform:scaleY(1.6)}
+  .slide .formula{font-size:clamp(14px,min(1.35vw,2.3vh),19px);margin:6px 0 10px}
+  .ink .formula{background:#1B1B20;border-color:#2B2B31;border-left-color:#FF4A4A;color:#E8E5DD}.ink .formula .b{background:#2B2B31;color:#C9C6BE}.ink .formula .eg{color:#9A9A9F}
+  .slide p.timer{font-size:clamp(44px,min(8vw,13vh),120px);line-height:1;margin:0 0 10px}
+/* 2026-10 QA pass: never clip tall slides, fit short screens */
+.slide{justify-content:safe center}
+@media (max-height:920px){
+  .slide{padding-top:4vh;padding-bottom:58px}
+  .slide h1{font-size:clamp(40px,10vh,96px)}
+  .slide h2{font-size:clamp(28px,6.2vh,56px)}
+  .slide .lead{font-size:clamp(17px,2.7vh,26px)}
+  .slide p,.slide li,.slide label{font-size:clamp(15px,2.35vh,22px)}
+  .slide .cols .box:has(.stat){padding:18px 18px}
+  .slide .cols .box .stat small{font-size:clamp(15px,2.3vh,22px)}
+  .check{padding:5px 0}
+  .ask{margin:4px 0 8px}
+  .photo.wide{aspect-ratio:16/5.5}
+  .cs{grid-template-columns:1fr}.cs .visual{display:none}
+  .cs .f{line-height:1.28;margin:0 0 4px}
+  .cs .body{padding:14px 18px}
+  .seq .step{padding:8px 0}
+}
+@media (max-height:760px){
+  .slide h2{font-size:clamp(26px,5.6vh,44px);margin-bottom:8px}
+  .photo.wide{aspect-ratio:16/4.2}
+  .slide .cols{margin-top:8px}
+  .slide .cols .box:has(.stat){padding:14px 16px}
+}
+/* fit fixes: stats slide, sources slide, build slide on short screens */
+@media (max-height:920px){.vs{gap:18px}.vs .art{max-height:100px}.vs .stat{font-size:clamp(32px,min(4.5vw,8vh),64px)!important}.slide:has(.cols + .ask) .cols{margin-top:10px}.slide:has(.cols + .ask) .cols .box .stat{font-size:clamp(40px,min(5.2vw,8.5vh),80px)!important}.slide:has(.cols + .ask) .cols .box .stat small{margin-top:10px}}
+@media (max-height:760px){.vs .art{display:none}.tight-hide{display:none}.slide .formula{font-size:clamp(13px,2.1vh,16px);padding:8px 12px;line-height:1.5}.seq .step{padding:6px 0}.slide .cols .box .stat small{line-height:1.25}}
 </style>
 </head>
 <body>
@@ -177,6 +207,7 @@
   <h2 class="reveal">Your project, in two sentences.</h2>
   <div class="cols two">
     <div class="box reveal">
+      <div class="formula"><span class="fx">Formula</span><span class="b">Project name</span> is a <span class="b">type of thing</span> that helps <span class="b">who</span> <span class="b">do what</span>. It's done when <span class="b">observable result</span>, published on <span class="b">where</span> by <span class="b">date</span>.</div>
       <label>Sentence 1: what it is and who it is for</label>
       <input type="text" data-store="pj1" placeholder="A one-page site that tells Illinois Tech commuters which Metra train to catch…">
       <label>Sentence 2: what "done" looks like, and by when</label>
@@ -192,7 +223,8 @@
   <div class="eyebrow reveal">0:13 · The scope shape</div>
   <h2 class="reveal">Appetite. Slice. Ship.</h2>
   <div class="seq" style="max-width:900px"><div class="step reveal"><div class="n">A</div><div><b style="color:#F4F2EC">Appetite.</b> How much time you will spend, fixed in advance: hours a week times weeks. The scope bends to fit it, never the reverse.</div></div><div class="step reveal"><div class="n">S</div><div><b style="color:#F4F2EC">Slice.</b> The thinnest version that works end to end. One feature, one page, one chair, one client. Everything else is version two.</div></div><div class="step reveal"><div class="n">S</div><div><b style="color:#F4F2EC">Ship.</b> Public, by a date: a repo with a README, a post, a demo video, a listing. If nobody can find it, it did not happen.</div></div></div>
-  <div class="ask reveal" style="margin-top:18px">Ask the room</div>
+  <div class="formula reveal" style="margin-top:12px;max-width:900px"><span class="fx">Scope formula</span>Appetite: <span class="b">hours</span> hours a week × <span class="b">weeks</span> weeks = <span class="b">total</span> hours. Slice: a <span class="b">user</span> can <span class="b">one action</span> and see <span class="b">one result</span>, end to end. Ship <span class="b">thinnest slice</span> to <span class="b">repo / post / demo / listing</span> on <span class="b">date</span>.</div>
+  <div class="ask reveal" style="margin-top:10px">Ask the room</div>
   <p class="lead reveal">Call out an idea. We cut it down to a slice together on the next slide.</p>
 </section>
 
@@ -214,6 +246,7 @@
       <label>Where do you want this to lead?</label>
       <select id="major" onchange="matchPlatform()"><option value="">Choose…</option><option value="proof">Proof for my portfolio</option><option value="gig">A paid freelance gig</option><option value="campus">A campus startup or research program</option><option value="course">A for-credit pathway</option><option value="unsure">I'm not sure yet</option></select>
       <div class="preview" id="platformOut" style="margin-top:12px">Pick a route to see the first move.</div>
+      <div class="formula" style="margin:12px 0 0"><span class="fx">Gig scope formula</span>I will deliver <span class="b">deliverable</span> for <span class="b">client</span> by <span class="b">date</span> for <span class="b">price</span>, including <span class="b">what&#x27;s in</span> and not including <span class="b">what&#x27;s out</span>.</div>
     </div>
     <div class="box reveal" style="text-align:center"><div class="ask">Live poll · Q2</div><p style="margin:0 0 10px">Which route are you most drawn to?</p><img src="assets/poll-qr.png" alt="Poll QR" style="width:min(200px,40vw);background:#fff;padding:6px;border-radius:10px"><p class="quiet"><span class="pollShort"></span></p></div>
   </div>
@@ -232,7 +265,7 @@
     <div class="reveal">
       <div class="pages" id="bpTabs"><span data-p="elective">Elevate electives</span><span data-p="course">Pathway courses</span><span data-p="ipro">IPRO</span><span data-p="studio" class="core">Startup Studio</span><span data-p="freelance">Freelance</span></div>
       <p class="lead" id="bpTitle" style="margin:14px 0 6px;font-family:var(--serif);font-weight:600">Elevate electives</p>
-      <p class="lead" id="bpText" style="margin-top:0">Hackathons, AWS Jam, Forage job simulations, the Entrepreneurial Venture Development elective. Short, optional, and they count toward your checklist.</p>
+      <p class="lead" id="bpText" style="margin-top:0">Hackathons, AWS Jam, Forage job simulations, the Entrepreneurial Venture Development elective. Short, optional, and all on the Elevate portal.</p>
       <p class="quiet" id="bpHint">Tap a stage. Auto-advances every 6 seconds until you do.</p>
     </div>
   </div>
@@ -266,7 +299,8 @@
       <div class="seq"><div class="step"><div class="n" style="font-size:22px;min-width:3.2em">8:00</div><div>Take your idea. Fill the scope fields on the <b>Handout</b> page: appetite in hours and weeks, the thinnest slice, ship date, where it gets published, and the first step dated this week.</div></div><div class="step"><div class="n" style="font-size:22px;min-width:3.2em">3:00</div><div>Swap phones with a neighbor. They ask one question: what would you cut to ship it in half the time? Whatever you answer, cut it.</div></div></div>
     </div>
   </div>
-  <p class="lead reveal" style="margin-top:8px;font-size:clamp(17px,1.8vw,24px)">Fixed time. Thin slice. Public by a date. First step before Friday.</p>
+  <div class="formula reveal" style="margin:8px 0 0"><span class="fx">Scope formula</span>Appetite: <span class="b">hours</span> × <span class="b">weeks</span> = <span class="b">total</span> hours. Slice: a <span class="b">user</span> can <span class="b">one action</span> and see <span class="b">one result</span>. Not now: <span class="b">feature</span>, <span class="b">feature</span>. Ship to <span class="b">repo / post / demo / listing</span> on <span class="b">date</span>. First step: on <span class="b">day, date</span> I will <span class="b">one 30-minute action</span>.</div>
+  <p class="lead reveal tight-hide" style="margin-top:8px;font-size:clamp(17px,1.8vw,24px)">Fixed time. Thin slice. Public by a date. First step before Friday.</p>
 </section>
 
 <!-- 12 Checklist -->
@@ -436,7 +470,7 @@ function csShow(k){ const d=CS[k]; document.querySelectorAll('#csTabs button').f
 const BP={
  "elective": [
   "Elevate electives",
-  "Hackathons, AWS Jam, Forage job simulations, the Entrepreneurial Venture Development elective. Short, optional, and they count toward your checklist.",
+  "Hackathons, AWS Jam, Forage job simulations, the Entrepreneurial Venture Development elective. Short, optional, and all on the Elevate portal.",
   "weeks"
  ],
  "course": [
