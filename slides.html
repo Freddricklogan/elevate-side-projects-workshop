@@ -102,6 +102,22 @@
   .slide .formula{font-size:clamp(14px,min(1.35vw,2.3vh),19px);margin:6px 0 10px}
   .ink .formula{background:#1B1B20;border-color:#2B2B31;border-left-color:#FF4A4A;color:#E8E5DD}.ink .formula .b{background:#2B2B31;color:#C9C6BE}.ink .formula .eg{color:#9A9A9F}
   .slide p.timer{font-size:clamp(44px,min(8vw,13vh),120px);line-height:1;margin:0 0 10px}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,34%);gap:clamp(24px,4vw,64px);align-items:center}
+.split > *{min-width:0}
+.split h2{max-width:24ch}
+.photo{position:relative;margin:0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow,0 12px 30px rgba(0,0,0,.18));background:var(--surface-2);aspect-ratio:4/5;max-height:66vh;width:100%}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.credit{position:absolute;left:10px;bottom:8px;font-size:11px;line-height:1.4;color:#fff;background:rgba(0,0,0,.5);padding:2px 9px;border-radius:999px;text-decoration:none;z-index:2}
+.credit a{color:#fff;text-decoration:none}
+@media (max-width:760px){.split{grid-template-columns:1fr}.photo{max-height:40vh}}
+.photo img{transition:opacity .25s ease}
+.startrow{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-top:12px}
+.startrow .preview{flex:1 1 220px;margin:0;min-height:5.5em}
+.photo.start{aspect-ratio:3/2;height:clamp(150px,26vh,240px);width:auto;max-width:100%;max-height:none;flex:0 0 auto;border-radius:12px;box-shadow:none;margin:0}
+.photo.start .credit{white-space:normal;max-width:calc(100% - 20px);border-radius:10px;line-height:1.3}
+.slide:has(.startrow) .cols.two{grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr)}
+@media (max-height:920px){.startrow .preview{font-size:clamp(15px,2.2vh,19px);line-height:1.4;padding:12px 14px}.photo.start{height:clamp(140px,24vh,220px)}}
+@media (max-height:760px){.startrow .preview{font-size:clamp(14px,2vh,16px);line-height:1.35;padding:10px 12px;min-height:0}.photo.start{height:clamp(130px,21vh,170px)}}
 /* 2026-10 QA pass: never clip tall slides, fit short screens */
 .slide{justify-content:safe center}
 @media (max-height:920px){
@@ -230,11 +246,16 @@
 
 <!-- 7 Examples by field -->
 <section class="slide">
-  <div class="eyebrow reveal">It works in every major</div>
-  <h2 class="reveal">Pick your field.</h2>
-  <div class="tabs reveal" id="tabs"></div>
-  <div class="box reveal" id="tabBody" style="font-size:clamp(17px,1.8vw,25px);font-family:var(--serif);line-height:1.45"></div>
-  <p class="quiet reveal" style="margin-top:14px">Every scope has a number for the appetite and a date for the ship. If yours says "when it's ready," it is not scoped.</p>
+  <div class="split">
+    <div>
+    <div class="eyebrow reveal">It works in every major</div>
+    <h2 class="reveal">Pick your field.</h2>
+    <div class="tabs reveal" id="tabs"></div>
+    <div class="box reveal" id="tabBody" style="font-size:clamp(17px,1.8vw,25px);font-family:var(--serif);line-height:1.45"></div>
+    <p class="quiet reveal" style="margin-top:14px">Every scope has a number for the appetite and a date for the ship. If yours says "when it's ready," it is not scoped.</p>
+    </div>
+    <figure class="photo reveal" id="fieldFig"><img src="https://images.unsplash.com/photo-1545184180-25d471fe75eb?w=900&q=80&auto=format&fit=crop&crop=faces" alt="A student building a project on a laptop at a coffee shop" style="object-position:50% 35%"><span class="credit">Photo: <a href="https://unsplash.com/@kyleloftusstudios?utm_source=elevate_workshops&amp;utm_medium=referral">Kyle Loftus</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span></figure>
+  </div>
 </section>
 
 <!-- 8 Match -->
@@ -245,7 +266,10 @@
     <div class="box reveal">
       <label>Where do you want this to lead?</label>
       <select id="major" onchange="matchPlatform()"><option value="">Choose…</option><option value="proof">Proof for my portfolio</option><option value="gig">A paid freelance gig</option><option value="campus">A campus startup or research program</option><option value="course">A for-credit pathway</option><option value="unsure">I'm not sure yet</option></select>
-      <div class="preview" id="platformOut" style="margin-top:12px">Pick a route to see the first move.</div>
+      <div class="startrow">
+        <div class="preview" id="platformOut">Pick a route to see the first move.</div>
+        <figure class="photo start" id="startFig"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=900&q=80&auto=format&fit=crop&crop=faces" alt="Students in safety glasses working at machines in an engineering workshop" style="object-position:50% 35%"><span class="credit">Photo: <a href="https://unsplash.com/@thisisengineering?utm_source=elevate_workshops&amp;utm_medium=referral">ThisisEngineering</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span></figure>
+      </div>
       <div class="formula" style="margin:12px 0 0"><span class="fx">Gig scope formula</span>I will deliver <span class="b">deliverable</span> for <span class="b">client</span> by <span class="b">date</span> for <span class="b">price</span>, including <span class="b">what&#x27;s in</span> and not including <span class="b">what&#x27;s out</span>.</div>
     </div>
     <div class="box reveal" style="text-align:center"><div class="ask">Live poll · Q2</div><p style="margin:0 0 10px">Which route are you most drawn to?</p><img src="assets/poll-qr.png" alt="Poll QR" style="width:min(200px,40vw);background:#fff;padding:6px;border-radius:10px"><p class="quiet"><span class="pollShort"></span></p></div>
@@ -377,6 +401,29 @@ const PLAT = {
  "course": "<b>Elevate Career Pathway courses.</b> For-credit routes: Braven Career Success, Virtual Internships, Global Career Accelerator. Book a career coach to pick one; the side project becomes your evidence inside the course.",
  "unsure": "<b>Ship the slice first.</b> The route reveals itself once something exists. Four weeks from now you will know whether you want to sell it, pitch it, or just show it."
 };
+const PHOTO={
+ "Computer Science": {src:"https://images.unsplash.com/photo-1545184180-25d471fe75eb?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"A student building a project on a laptop at a coffee shop", name:"Kyle Loftus", handle:"kyleloftusstudios", pos:"50% 35%"},
+ "Architecture": {src:"https://images.unsplash.com/photo-1638718260002-18bdc8082608?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"Hands marking a piece of wood with a pencil in a workshop", name:"Chandler Cruttenden", handle:"chanphoto", pos:"50% 50%"},
+ "Business": {src:"https://images.unsplash.com/photo-1762784574847-16c5100cd1ff?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"Two students planning at a whiteboard with laptops", name:"Rodrigo Rodrigues", handle:"wolfart32", pos:"50% 30%"},
+ "Electrical Eng.": {src:"https://images.unsplash.com/photo-1634454023167-59d99c0921a5?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"An Arduino board and breadboard on a desk", name:"Vishnu Mohanan", handle:"vishnumaiea", pos:"50% 50%"},
+ "Civil / Mechanical": {src:"https://images.unsplash.com/photo-1603974739154-7b055aeec101?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"A 3D printer printing a part", name:"New Data Services", handle:"new_data_services", pos:"50% 50%"},
+ "Sciences": {src:"https://images.unsplash.com/photo-1766218331975-ecc29597ce9f?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"Laptops showing data charts during a late work session", name:"Mehedi Hasan", handle:"mehedi012", pos:"50% 50%"}
+};
+const PHOTO2={
+ "": {src:"https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"Students in safety glasses working at machines in an engineering workshop", name:"ThisisEngineering", handle:"thisisengineering", pos:"50% 35%"},
+ "proof": {src:"https://images.unsplash.com/photo-1758873268444-73528cd3ec93?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"Two colleagues reviewing finished work on a laptop", name:"Vitaly Gariev", handle:"silverkblack", pos:"50% 35%"},
+ "gig": {src:"https://images.unsplash.com/photo-1616587224026-668840f26916?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"A freelancer meeting a client over a laptop in a cafe", name:"LinkedIn Sales Solutions", handle:"linkedinsalesnavigator", pos:"50% 40%"},
+ "campus": {src:"https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"A founder pitching at a whiteboard to a small startup team", name:"Austin Distel", handle:"austindistel", pos:"50% 40%"},
+ "course": {src:"https://images.unsplash.com/photo-1758270704262-ecc82b23dc37?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"A professor talking with students in a classroom", name:"Vitaly Gariev", handle:"silverkblack", pos:"50% 40%"},
+ "unsure": {src:"https://images.unsplash.com/photo-1674049405530-7bbb0b0c1eef?w=900&q=80&auto=format&fit=crop&crop=faces", alt:"A student looking away from a laptop, thinking it over", name:"Bermix Studio", handle:"bermixstudio", pos:"50% 35%"}
+};
+const UTM='?utm_source=elevate_workshops&utm_medium=referral';
+function swapPhoto(id,p){ const fig=document.getElementById(id); if(!fig||!p) return; const img=fig.querySelector('img'), cr=fig.querySelector('.credit');
+  if(img.dataset.src===p.src) return; img.dataset.src=p.src;
+  const apply=()=>{ img.onload=()=>{ img.style.opacity='1'; }; img.alt=p.alt; img.style.objectPosition=p.pos||'50% 50%'; img.src=p.src; if(img.complete&&img.naturalWidth) img.style.opacity='1';
+    cr.innerHTML='Photo: <a href="https://unsplash.com/@'+p.handle+UTM+'">'+p.name+'</a> / <a href="https://unsplash.com/'+UTM+'">Unsplash</a>'; };
+  img.style.opacity='0'; setTimeout(apply,250); }
+function preloadPhotos(){ [...Object.values(PHOTO),...Object.values(PHOTO2)].forEach(p=>{ const i=new Image(); i.src=p.src; }); }
 const slides=[...document.querySelectorAll('.slide')]; let i=0;
 function replay(s){ s.querySelectorAll('.reveal,.draw,.typing,.pages span').forEach(el=>{ el.style.animation='none'; void el.offsetWidth; el.style.animation=''; }); }
 function show(n){ const prev=i; i=Math.max(0,Math.min(slides.length-1,n)); slides.forEach((s,k)=>{s.classList.toggle('on',k===i); s.classList.toggle('back',k===i&&i<prev);}); replay(slides[i]);
@@ -501,11 +548,12 @@ function bpShow(k,manual){ bpIdx=bpKeys.indexOf(k); document.querySelectorAll('#
   const t=document.getElementById('bpTitle'),x=document.getElementById('bpText'); t.textContent=BP[k][0]; x.textContent=BP[k][1]; [t,x].forEach(el=>{el.style.animation='none'; void el.offsetWidth; el.style.animation='rise .5s var(--ease)';});
   if(manual){ clearInterval(bpTimer); bpTimer=null; document.getElementById('bpHint').textContent='Tap another page, or press → to move on.'; } }
 function bpStart(){ clearInterval(bpTimer); bpShow(bpKeys[0]); bpTimer=setInterval(()=>bpShow(bpKeys[(bpIdx+1)%bpKeys.length]),6000); }
-function matchPlatform(){ const v=document.getElementById('major').value; document.getElementById('platformOut').innerHTML= v?PLAT[v]:"Pick a route to see the first move."; }
+function matchPlatform(){ const v=document.getElementById('major').value; document.getElementById('platformOut').innerHTML= v?PLAT[v]:"Pick a route to see the first move."; swapPhoto('startFig',PHOTO2[v]||PHOTO2['']); }
 function aboutPrev(){ const a=PW.get('pj1',''),b=PW.get('pj2',''); document.getElementById('aboutPreview').textContent=(a||b)?(a+' '+b).trim():"Your project description will appear here."; }
 document.addEventListener('DOMContentLoaded',()=>{
+  preloadPhotos();
   const tabs=document.getElementById('tabs'),body=document.getElementById('tabBody'); let first=true;
-  Object.keys(EX).forEach(k=>{ const b=document.createElement('button'); b.textContent=k; b.onclick=()=>{[...tabs.children].forEach(x=>x.classList.remove('on')); b.classList.add('on'); body.innerHTML='<p style="margin:0">'+EX[k]+'</p>';}; tabs.appendChild(b); if(first){b.click();first=false;} });
+  Object.keys(EX).forEach(k=>{ const b=document.createElement('button'); b.textContent=k; b.onclick=()=>{[...tabs.children].forEach(x=>x.classList.remove('on')); b.classList.add('on'); body.innerHTML='<p style="margin:0">'+EX[k]+'</p>'; swapPhoto('fieldFig',PHOTO[k]);}; tabs.appendChild(b); if(first){b.click();first=false;} });
   document.querySelectorAll('[data-store="pj1"],[data-store="pj2"]').forEach(el=>el.addEventListener('input',aboutPrev)); aboutPrev();
   const CF=window.PW_CONFIG||{}; document.getElementById('bookLink').href=CF.bookingUrl||'#'; document.getElementById('checkinShort').textContent=(CF.checkinUrl||'').replace('https://',''); document.getElementById('qaShort').textContent=(CF.qaUrl||'').replace('https://',''); document.querySelectorAll('.pollShort').forEach(e=>e.textContent=(CF.pollUrl||'').replace('https://','')||'poll opens on workshop day');
   document.querySelectorAll('#bpTabs span').forEach(t=>t.onclick=()=>bpShow(t.dataset.p,true));
