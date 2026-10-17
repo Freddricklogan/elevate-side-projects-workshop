@@ -18,6 +18,7 @@
 <section class="hero"><div class="wrap">
   <div class="eyebrow">Student worksheet</div>
   <h1>Scope one project and date the first step today</h1>
+  <p class="hint" style="margin:-2px 0 10px" data-session="long"></p>
   <p class="lead">Everything you type saves on this device. When you're done, download it, email it to Career Services, or print it. Nothing is sent anywhere until you choose to send it.</p>
   <p class="noprint"><button class="btn" onclick="exportText()">Download my worksheet</button> <button class="btn ghost" onclick="emailIt()">Email it to Career Services</button> <button class="btn ghost" onclick="window.print()">Print</button> <button class="btn ghost small" onclick="clearAll()">Clear</button></p>
 </div></section>
@@ -30,7 +31,7 @@
     <span class="pill">Last step</span><h2>Before you leave, take it with you</h2>
     <p class="hint" style="margin:0 0 10px">Everything above is saved on this device only. Use the buttons at the top to <b>download</b> it as a text file, <b>email</b> it to yourself or to Freddrick, or <b>print</b> it. Then:</p>
     <div class="check"><input type="checkbox" data-store="c1" id="k1"><label for="k1">Describe your project in two sentences (what it is, who it is for)</label></div><div class="check"><input type="checkbox" data-store="c2" id="k2"><label for="k2">Fix the appetite: hours per week and a number of weeks</label></div><div class="check"><input type="checkbox" data-store="c3" id="k3"><label for="k3">Name the thinnest slice: the smallest version that works end to end</label></div><div class="check"><input type="checkbox" data-store="c4" id="k4"><label for="k4">Set the ship date and publish location (repo, post, demo, listing)</label></div><div class="check"><input type="checkbox" data-store="c5" id="k5"><label for="k5">Date the first step this week</label></div><div class="check"><input type="checkbox" data-store="c6" id="k6"><label for="k6">Explore one Illinois Tech pathway and book a one-on-one</label></div>
-    <p style="margin-top:14px"><a class="btn" id="bookBtn" href="#">Book a one-on-one</a> <a class="btn ghost" id="checkinBtn" href="#">Check in on 312</a></p>
+    <p style="margin-top:14px"><a class="btn" id="bookBtn" href="#">Book a one-on-one</a> <span data-checkin="btn"><a class="btn ghost" id="checkinBtn" href="#">Check in on 312</a></span></p>
   </div>
   <div class="card">
     <h2>Keep going on Elevate</h2>
@@ -40,7 +41,7 @@
 </div></section>
 <footer class="footer"><div class="wrap">
   <div>Career Services and Experiential Learning · Illinois Institute of Technology · MTCC Room 106 · 312.567.6800 · <a href="https://elevate.iit.edu">elevate.iit.edu</a></div>
-  <div>© 2026 Freddrick Logan, PhD · <a href="https://fredlogan.phd">fredlogan.phd</a></div>
+  <div>© <span data-year></span> Freddrick Logan, PhD · <a href="https://fredlogan.phd">fredlogan.phd</a></div>
 </div></footer>
 <script src="assets/config.js"></script>
 <script src="assets/site.js"></script>

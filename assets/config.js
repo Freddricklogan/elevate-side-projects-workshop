@@ -1,8 +1,14 @@
 /* Site configuration. Edit these values; no other file needs to change. */
+/* Edit this file to update a session. Nothing else in the site needs to change. */
 window.PW_CONFIG = {
-  eventDate: "Thursday, November 19, 2026",
-  eventTime: "12:45–1:45 p.m. (doors 12:30)",
-  eventRoom: "Hermann Hall 010",
+  // One entry per session, Chicago time (America/Chicago), 24-hour clock.
+  // The site shows the next session that has not ended yet; ended sessions move to "Past sessions" on the home page.
+  // To schedule the next session, add an entry here.
+  sessions: [
+    { date: "2026-11-19", start: "12:45", end: "13:45", room: "Hermann Hall 010", doors: "12:30" }
+  ],
+  // Legacy single-event fields: filled in at load time from the next session by assets/site.js. Leave blank.
+  eventDate: "", eventTime: "", eventRoom: "",
   checkinUrl: "https://312.iit.edu/career/events/",      // 312 self check-in link for this event (replace with the event's cglink.me link; regenerate assets/checkin-qr.png)
   bookingUrl: "https://bookings.cloud.microsoft/bookwithme/user/1503544b91244ca495f66b5e1d2386fe%40illinoistech.edu?anonymous&ismsaljsauthenabled",
   staffEmail: "flogan1@illinoistech.edu",
