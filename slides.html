@@ -195,6 +195,13 @@
   .accent .hud,.ink .hud{background:var(--bg)}
 }
 @media (max-height:920px){.slide:has(#tlart) .photo.start.side{height:clamp(110px,16vh,150px)}}
+
+/* "On the Hub" link chip: scarlet outline, opens the Careers & Elevate Hub in a new tab; sits in flow inside the eyebrow line */
+.hubchip{display:inline-flex;align-items:center;margin-left:12px;vertical-align:middle;padding:3px 11px;border:1.5px solid var(--accent);border-radius:999px;color:var(--accent);background:transparent;font-size:12px;font-weight:700;letter-spacing:.2px;text-transform:none;text-decoration:none;white-space:nowrap;line-height:1.4}
+.slide.ink .hubchip{border-color:#FF4A4A;color:#FF4A4A}
+.slide.accent .hubchip{border-color:#fff;color:#fff}
+.hubchip:hover{background:var(--accent);color:#fff}
+@media (max-width:760px){.hubchip{margin:6px 0 0;white-space:normal}}
 </style>
 </head>
 <body>
@@ -292,7 +299,7 @@
 <section class="slide ink">
   <div class="split">
   <div>
-  <div class="eyebrow reveal">0:13 · The scope shape</div>
+  <div class="eyebrow reveal">0:13 · The scope shape <a class="hubchip" href="https://elevate.iit.edu/407233-2/" target="_blank" rel="noopener noreferrer">On the Hub → SMART Goals</a></div>
   <h2 class="reveal">SHIP it.</h2>
   <div class="seq" style="max-width:900px"><div class="step reveal"><div class="n">S</div><div><b style="color:#F4F2EC">Size it.</b> Hours a week times weeks, fixed in advance. The scope bends to fit the time, never the reverse.</div></div><div class="step reveal"><div class="n">H</div><div><b style="color:#F4F2EC">Hone one slice.</b> The thinnest version that works end to end. One feature, one page, one chair, one client. Everything else is version two.</div></div><div class="step reveal"><div class="n">I</div><div><b style="color:#F4F2EC">Invite one real user.</b> One person actually uses it before you call it done.</div></div><div class="step reveal"><div class="n">P</div><div><b style="color:#F4F2EC">Publish by a date.</b> A repo with a README, a post, a demo video, a listing. If nobody can find it, it did not happen.</div></div></div>
   <div class="formula reveal" style="margin-top:12px;max-width:900px"><span class="fx">SHIP, in one line</span>Size: <span class="b">hours</span> a week × <span class="b">weeks</span>. Hone: a <span class="b">user</span> can <span class="b">one action</span> and see <span class="b">one result</span>. Invite: <span class="b">one person</span> tries it. Publish: on <span class="b">repo / post / demo / listing</span> by <span class="b">date</span>.</div>
@@ -319,7 +326,7 @@
 
 <!-- 8 Match -->
 <section class="slide">
-  <div class="eyebrow reveal">0:18 · Three routes</div>
+  <div class="eyebrow reveal">0:18 · Three routes <a class="hubchip" href="https://elevate.iit.edu/experiences/category/incubators-accelerators-startup-studios/" target="_blank" rel="noopener noreferrer">On the Hub → Incubators, Accelerators &amp; Startup Studios</a></div>
   <h2 class="reveal">Same project, three places it can go.</h2>
   <div class="cols two">
     <div class="box reveal">
@@ -338,7 +345,7 @@
 
 <!-- 9 Toggle -->
 <section class="slide">
-  <div class="eyebrow reveal">0:26 · The Illinois Tech map</div>
+  <div class="eyebrow reveal">0:26 · The Illinois Tech map <a class="hubchip" href="https://elevate.iit.edu/channels/curriculum-based-pathways/" target="_blank" rel="noopener noreferrer">On the Hub → Career Pathway Courses</a></div>
   <h2 class="reveal">Five pathways. All of them start with a scoped project.</h2>
   <div class="cols two">
     <div class="reveal">
@@ -359,7 +366,7 @@
 <section class="slide ink has-bg">
   <div class="bgphoto" style="background-image:linear-gradient(180deg,rgba(18,18,20,.80) 0%,rgba(18,18,20,.93) 55%,rgba(18,18,20,.97) 100%),url('https://images.unsplash.com/photo-1493134799591-2c9eed26201a?w=1920&q=70&auto=format&fit=crop')"></div>
   <span class="credit">Photo: <a href="https://unsplash.com/@jbrown1276?utm_source=elevate_workshops&amp;utm_medium=referral">Jeff Brown</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span>
-  <div class="eyebrow reveal">Ideas you already have</div>
+  <div class="eyebrow reveal">Ideas you already have <a class="hubchip" href="https://elevate.iit.edu/experiences/category/competitions-outside-courses/" target="_blank" rel="noopener noreferrer">On the Hub → Competitions &amp; External Courses</a></div>
   <h2 class="reveal">The project is already in your week. It just isn't scoped.</h2>
   <div class="trio">
     <div class="tcard reveal"><span class="stepno">01</span><b>Class</b><p>Fix the assignment that annoyed you, build the tool your lab is missing, pitch the IPRO problem nobody picked.</p></div>
@@ -394,7 +401,7 @@
 
 <!-- 12 Checklist -->
 <section class="slide">
-  <div class="eyebrow reveal">0:41 · Before you leave</div>
+  <div class="eyebrow reveal">0:41 · Before you leave <a class="hubchip" href="https://elevate.iit.edu/407232-2/" target="_blank" rel="noopener noreferrer">On the Hub → Design a Professional Portfolio</a></div>
   <h2 class="reveal">What leaves the room with you.</h2>
   <div class="cols two">
     <div class="box reveal"><div class="check"><input type="checkbox" data-store="c1" id="c1"><label for="c1">Describe your project in two sentences (what it is, who it is for)</label></div><div class="check"><input type="checkbox" data-store="c2" id="c2"><label for="c2">Size it: hours a week × weeks, fixed in advance</label></div><div class="check"><input type="checkbox" data-store="c3" id="c3"><label for="c3">Hone one slice: the thinnest version that works end to end</label></div><div class="check"><input type="checkbox" data-store="c4" id="c4"><label for="c4">Invite one real user, then publish by a date (repo, post, demo, listing)</label></div><div class="check"><input type="checkbox" data-store="c5" id="c5"><label for="c5">Date the first step this week</label></div><div class="check"><input type="checkbox" data-store="c6" id="c6"><label for="c6">Explore one Illinois Tech pathway and book a one-on-one</label></div></div>
