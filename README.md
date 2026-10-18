@@ -10,7 +10,7 @@ Interactive workshop site for Illinois Tech Career Services and Experiential Lea
 | `slides.html` | Presenter deck: arrow keys to advance, `N` for speaker notes, `F` fullscreen, swipe on phones. Includes timers, hand-count tallies, About Me builder, platform match, discipline examples |
 | `handout.html` | Student worksheet. Saves on the student's device; download as text, email to Career Services, or print |
 | `poll.html` | Live poll. Facilitator tally mode by default; embeds a Microsoft Form or Slido poll when configured |
-| `resources.html` | The resources page: open-source and hackathon starting points, freelance platforms and first-gig guide, Illinois Tech pathways (Kaplan, IPRO, Startup Studio, Elevate pathway courses). |
+| `resources.html` | The resources page: open-source and hackathon starting points, freelance platforms and first-gig guide, Illinois Tech pathways (Incubators & Accelerators, Kaplan, IPRO, Elevate pathway courses). |
 | `qa.html` | Student Q&A: embeds a Microsoft Form when configured, otherwise emails the question. `qa.html#board` projects the open questions |
 | `presenter.html` | Presenter view for the laptop screen: current slide, notes, next slide, clock, run of show, question board. Press `P` in the deck to open it |
 | `facilitator.html` | Run of show and talking points (staff) |
