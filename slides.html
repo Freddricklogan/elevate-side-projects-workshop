@@ -172,6 +172,29 @@
 .ink .tcard p{color:#D6D3CB}
 @media (max-width:760px){.trio{grid-template-columns:1fr;gap:12px}.tcard b{font-size:28px}}
 @media (max-height:760px){.tcard{padding:10px 14px}.tcard b{margin:4px 0 6px}}
+
+/* Activity slide: three numbered steps in large type, fill-in-the-blank lines */
+.steps3{list-style:none;counter-reset:s;margin:0;padding:0}
+.steps3>li{counter-increment:s;display:grid;grid-template-columns:42px 1fr;gap:2px 12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:clamp(16px,min(1.4vw,2.5vh),23px);line-height:1.35;color:var(--body)}
+.steps3>li:last-child{border-bottom:0}
+.steps3>li::before{content:counter(s);font-family:var(--serif);font-weight:600;font-size:clamp(28px,min(2.8vw,4.6vh),44px);line-height:1;color:var(--accent);grid-row:1/span 2}
+.steps3 b{color:var(--ink);font-weight:700}
+.steps3 .t{color:var(--muted);font-size:.85em}
+.blanks{grid-column:2;list-style:none;margin:2px 0 0;padding:0;font-size:.88em;color:var(--ink)}
+.blanks li{padding:2px 0;line-height:1.4}
+.bl{display:inline-block;width:3.6ch;border-bottom:2px solid var(--accent);vertical-align:-3px;margin:0 1px}
+.nocode{font-weight:600;color:var(--ink)}
+@media (max-height:760px){.steps3>li{padding:5px 0;font-size:clamp(14px,2.2vh,18px)}.blanks li{padding:0}.steps3>li::before{font-size:clamp(22px,4vh,34px)}}
+
+/* Phone layout: title fits, photo credit flows below the content, HUD is an opaque bar the slide pads for */
+@media (max-width:760px){
+  .slide{padding-bottom:132px}
+  .slide h1{font-size:clamp(34px,10vw,48px);overflow-wrap:anywhere}
+  .slide > .credit{position:static;order:99;align-self:flex-start;margin-top:14px;max-width:100%;white-space:normal;line-height:1.3;border-radius:10px}
+  .hud{flex-wrap:wrap;gap:4px 10px;padding:8px 12px;background:var(--bg);border-top:1px solid var(--line)}
+  .accent .hud,.ink .hud{background:var(--bg)}
+}
+@media (max-height:920px){.slide:has(#tlart) .photo.start.side{height:clamp(110px,16vh,150px)}}
 </style>
 </head>
 <body>
@@ -272,7 +295,7 @@
   <div class="eyebrow reveal">0:13 · The scope shape</div>
   <h2 class="reveal">SHIP it.</h2>
   <div class="seq" style="max-width:900px"><div class="step reveal"><div class="n">S</div><div><b style="color:#F4F2EC">Size it.</b> Hours a week times weeks, fixed in advance. The scope bends to fit the time, never the reverse.</div></div><div class="step reveal"><div class="n">H</div><div><b style="color:#F4F2EC">Hone one slice.</b> The thinnest version that works end to end. One feature, one page, one chair, one client. Everything else is version two.</div></div><div class="step reveal"><div class="n">I</div><div><b style="color:#F4F2EC">Invite one real user.</b> One person actually uses it before you call it done.</div></div><div class="step reveal"><div class="n">P</div><div><b style="color:#F4F2EC">Publish by a date.</b> A repo with a README, a post, a demo video, a listing. If nobody can find it, it did not happen.</div></div></div>
-  <div class="formula reveal" style="margin-top:12px;max-width:900px"><span class="fx">Scope formula</span>Size: <span class="b">hours</span> hours a week × <span class="b">weeks</span> weeks = <span class="b">total</span> hours. Slice: a <span class="b">user</span> can <span class="b">one action</span> and see <span class="b">one result</span>, end to end. Ship <span class="b">thinnest slice</span> to <span class="b">repo / post / demo / listing</span> on <span class="b">date</span>.</div>
+  <div class="formula reveal" style="margin-top:12px;max-width:900px"><span class="fx">SHIP, in one line</span>Size: <span class="b">hours</span> a week × <span class="b">weeks</span>. Hone: a <span class="b">user</span> can <span class="b">one action</span> and see <span class="b">one result</span>. Invite: <span class="b">one person</span> tries it. Publish: on <span class="b">repo / post / demo / listing</span> by <span class="b">date</span>.</div>
   <div class="ask reveal" style="margin-top:10px">Ask the room</div>
   <p class="lead reveal">Call out an idea. We cut it down to a slice together on the next slide.</p>
   </div>
@@ -288,7 +311,7 @@
     <h2 class="reveal">Pick your field.</h2>
     <div class="tabs reveal" id="tabs"></div>
     <div class="box reveal" id="tabBody" style="font-size:clamp(17px,1.8vw,25px);font-family:var(--serif);line-height:1.45"></div>
-    <p class="quiet reveal" style="margin-top:14px">Every scope has a number for the appetite and a date for the ship. If yours says "when it's ready," it is not scoped.</p>
+    <p class="quiet reveal" style="margin-top:14px">Every scope has a number for the size and a date for the publish. If yours says "when it's ready," it is not scoped.</p>
     </div>
     <figure class="photo reveal" id="fieldFig"><img src="https://images.unsplash.com/photo-1545184180-25d471fe75eb?w=900&q=80&auto=format&fit=crop&crop=faces" alt="A student building a project on a laptop at a coffee shop" style="object-position:50% 35%"><span class="credit">Photo: <a href="https://unsplash.com/@kyleloftusstudios?utm_source=elevate_workshops&amp;utm_medium=referral">Kyle Loftus</a> / <a href="https://unsplash.com/?utm_source=elevate_workshops&amp;utm_medium=referral">Unsplash</a></span></figure>
   </div>
@@ -355,15 +378,18 @@
     <div class="reveal">
       <div class="tabs" id="csTabs" style="margin-bottom:10px"></div>
       <div class="cs" id="csCard"></div>
-      <p class="quiet" style="margin-top:10px">A finished scope looks like this: a number, a slice, a date, a first step, a URL. Examples and the template are on the <b>Resources</b> page.</p>
+      <p class="quiet tight-hide" style="margin-top:10px">A finished scope looks like this: a size, a slice, a user, a date and a first step. The template is on the <b>Resources</b> page.</p>
+      <p class="quiet nocode" style="margin-top:8px">No code? Publish on Google Sites, Canva, Behance, Notion or a LinkedIn post instead.</p>
     </div>
     <div class="reveal">
-      <div class="box" style="text-align:center;margin-bottom:14px"><p class="timer" id="t8" style="margin:0 0 8px">8:00</p><p style="margin:0"><button class="btn" onclick="startTimer(480,'t8')">Start 8:00</button> <button class="btn ghost small" onclick="startTimer(180,'t8')">3:00 swap</button></p></div>
-      <div class="seq"><div class="step"><div class="n" style="font-size:22px;min-width:3.2em">8:00</div><div>Take your idea. Fill the scope fields on the <b>Handout</b> page: appetite in hours and weeks, the thinnest slice, ship date, where it gets published, and the first step dated this week.</div></div><div class="step"><div class="n" style="font-size:22px;min-width:3.2em">3:00</div><div>Swap phones with a neighbor. They ask one question: what would you cut to ship it in half the time? Whatever you answer, cut it.</div></div></div>
+      <div class="box" style="text-align:center;margin-bottom:12px"><p class="timer" id="t8" style="margin:0 0 8px">8:00</p><p style="margin:0"><button class="btn" onclick="startTimer(480,'t8')">Start 8:00</button> <button class="btn ghost small" onclick="startTimer(180,'t8')">3:00 swap</button></p></div>
+      <ol class="steps3">
+        <li><b>Pick one idea</b> <span class="t">(30 seconds)</span></li>
+        <li><b>Fill in four blanks on the Handout page</b><ul class="blanks"><li>I will spend <i class="bl"></i> hours a week for <i class="bl"></i> weeks.</li><li>Version one is only <i class="bl"></i>.</li><li>One person who will try it: <i class="bl"></i>.</li><li>I will publish it on <i class="bl"></i> by <i class="bl"></i>.</li></ul></li>
+        <li><b>At 3:00, swap with a neighbor.</b> They ask: “What would you cut to finish in half the time?” Cut it.</li>
+      </ol>
     </div>
   </div>
-  <div class="formula reveal" style="margin:8px 0 0"><span class="fx">Scope formula</span>Appetite: <span class="b">hours</span> × <span class="b">weeks</span> = <span class="b">total</span> hours. Slice: a <span class="b">user</span> can <span class="b">one action</span> and see <span class="b">one result</span>. Not now: <span class="b">feature</span>, <span class="b">feature</span>. Ship to <span class="b">repo / post / demo / listing</span> on <span class="b">date</span>. First step: on <span class="b">day, date</span> I will <span class="b">one 30-minute action</span>.</div>
-  <p class="lead reveal tight-hide" style="margin-top:8px;font-size:clamp(17px,1.8vw,24px)">Fixed time. Thin slice. Public by a date. First step before Friday.</p>
 </section>
 
 <!-- 12 Checklist -->
@@ -371,7 +397,7 @@
   <div class="eyebrow reveal">0:41 · Before you leave</div>
   <h2 class="reveal">What leaves the room with you.</h2>
   <div class="cols two">
-    <div class="box reveal"><div class="check"><input type="checkbox" data-store="c1" id="c1"><label for="c1">Describe your project in two sentences (what it is, who it is for)</label></div><div class="check"><input type="checkbox" data-store="c2" id="c2"><label for="c2">Fix the appetite: hours per week and a number of weeks</label></div><div class="check"><input type="checkbox" data-store="c3" id="c3"><label for="c3">Name the thinnest slice: the smallest version that works end to end</label></div><div class="check"><input type="checkbox" data-store="c4" id="c4"><label for="c4">Set the ship date and publish location (repo, post, demo, listing)</label></div><div class="check"><input type="checkbox" data-store="c5" id="c5"><label for="c5">Date the first step this week</label></div><div class="check"><input type="checkbox" data-store="c6" id="c6"><label for="c6">Explore one Illinois Tech pathway and book a one-on-one</label></div></div>
+    <div class="box reveal"><div class="check"><input type="checkbox" data-store="c1" id="c1"><label for="c1">Describe your project in two sentences (what it is, who it is for)</label></div><div class="check"><input type="checkbox" data-store="c2" id="c2"><label for="c2">Size it: hours a week × weeks, fixed in advance</label></div><div class="check"><input type="checkbox" data-store="c3" id="c3"><label for="c3">Hone one slice: the thinnest version that works end to end</label></div><div class="check"><input type="checkbox" data-store="c4" id="c4"><label for="c4">Invite one real user, then publish by a date (repo, post, demo, listing)</label></div><div class="check"><input type="checkbox" data-store="c5" id="c5"><label for="c5">Date the first step this week</label></div><div class="check"><input type="checkbox" data-store="c6" id="c6"><label for="c6">Explore one Illinois Tech pathway and book a one-on-one</label></div></div>
     <div class="box reveal"><p class="quiet" style="margin:0 0 6px">Keep going</p><p>Book a one-on-one: <a id="bookLink" href="#">30 minutes with Career Services</a></p><p><a href="https://www.iit.edu/kaplan/programs/startup-studio">Kaplan Startup Studio</a> · <a href="https://elevate.iit.edu/channels/curriculum-based-pathways/">Elevate pathway courses</a> · <a href="https://elevate.iit.edu/experiences/category/competitions-outside-courses/">Hackathons and competitions</a></p></div>
   </div>
 </section>
@@ -420,18 +446,18 @@ const NOTES = [
  "Use the dropdown with a student's answer. For the gig route, say the IRS line plainly: net self-employment income of $400 or more goes on a tax return. For the campus route, name Kaplan and the Idea Shop.",
  "Five pathways. Startup Studio is the core for anyone with a venture idea; pathway courses for anyone who wants credit. Let the auto-advance run once, then tap the ones that fit the room.",
  "Ask the question on the slide. Name the Elevate pieces: hackathons and competitions count, AWS Jam, Forage, the venture elective.",
- "Start the 8-minute timer. Walk the room. Push for an appetite number and a ship date. At 8:00 start the 3-minute swap: what would you cut?",
+ "Start the 8-minute timer. Walk the room. Push for a Size number and a Publish date. At 8:00 start the 3-minute swap: what would you cut?",
  "Checklist: read it fast. Point to the booking link; offer to pressure-test the scope and pick a pathway.",
  "Leave the QR up. Check-in on 312 is what records the Elevate workshop credit.",
  "Open the Forms Responses tab or project the question board from the presenter view. Answer what you can live; follow up by email for the rest. Point to the booking QR for the one-on-one."
 ];
 const EX = {
- "Computer Science": "Appetite: 5 hours a week for 4 weeks. Slice: a CLI that renames photo files by date, nothing else. Ship: public repo with a README and a 60-second demo GIF, by the 12th.",
- "Architecture": "Appetite: 6 hours a week for 3 weeks. Slice: one furniture piece from scrap plywood, built at the Idea Shop. Ship: five photos and a one-page process sheet on Behance, by the 12th.",
- "Business": "Appetite: 4 hours a week for 4 weeks. Slice: a pricing spreadsheet for one campus club's merch, with a two-page recommendation. Ship: the club uses it; case study on LinkedIn, by the 12th.",
- "Electrical Eng.": "Appetite: 5 hours a week for 4 weeks. Slice: a desk lamp that dims by ambient light, one sensor, one board. Ship: schematic, photo, and test video in a repo, by the 12th.",
- "Civil / Mechanical": "Appetite: 4 hours a week for 3 weeks. Slice: a 3D-printed phone stand designed for one specific desk. Ship: STL file and photos on a public page, by the 12th.",
- "Sciences": "Appetite: 3 hours a week for 4 weeks. Slice: a reproducible notebook that cleans one public dataset and makes one chart. Ship: repo plus a short write-up, by the 12th."
+ "Computer Science": "Size: 5 hours a week for 4 weeks. Hone: a CLI that renames photo files by date, nothing else. Publish: public repo with a README and a 60-second demo GIF, by the 12th.",
+ "Architecture": "Size: 6 hours a week for 3 weeks. Hone: one furniture piece from scrap plywood, built at the Idea Shop. Publish: five photos and a one-page process sheet on Behance, by the 12th.",
+ "Business": "Size: 4 hours a week for 4 weeks. Hone: a pricing spreadsheet for one campus club's merch, with a two-page recommendation. Publish: the club uses it; case study on LinkedIn, by the 12th.",
+ "Electrical Eng.": "Size: 5 hours a week for 4 weeks. Hone: a desk lamp that dims by ambient light, one sensor, one board. Publish: schematic, photo, and test video in a repo, by the 12th.",
+ "Civil / Mechanical": "Size: 4 hours a week for 3 weeks. Hone: a 3D-printed phone stand designed for one specific desk. Publish: STL file and photos on a public page, by the 12th.",
+ "Sciences": "Size: 3 hours a week for 4 weeks. Hone: a reproducible notebook that cleans one public dataset and makes one chart. Publish: repo plus a short write-up, by the 12th."
 };
 const PLAT = {
  "proof": "<b>Ship it public and write the case study.</b> Repo with a README, or a Behance page, or a LinkedIn post with photos. Challenge, Action, Result, a number. Then it goes on the portfolio from workshop one.",
@@ -490,6 +516,7 @@ const CS=[
   "title": "Metra timer for commuters",
   "c": "5 hours a week for 4 weeks (20 hours total).",
   "a": "One page: pick a station, see the next three trains. No accounts, no map.",
+  "inv": "One commuter on your floor uses it for a week before you post it.",
   "r": [
    "",
    "December 12",
@@ -504,6 +531,7 @@ const CS=[
   "title": "Ambient-light desk lamp",
   "c": "5 hours a week for 4 weeks.",
   "a": "One sensor, one board, one lamp that dims as the room brightens. No app, no Bluetooth.",
+  "inv": "Your roommate uses the lamp for a week and tells you what is wrong.",
   "r": [
    "",
    "December 12",
@@ -518,6 +546,7 @@ const CS=[
   "title": "Club merch pricing model",
   "c": "4 hours a week for 4 weeks.",
   "a": "A spreadsheet that prices one club's merch run and a two-page recommendation. One club, one product line.",
+  "inv": "The club treasurer runs one real merch order through the sheet.",
   "r": [
    "",
    "December 12",
@@ -532,6 +561,7 @@ const CS=[
   "title": "Scrap-plywood stool",
   "c": "6 hours a week for 3 weeks.",
   "a": "One stool from Idea Shop offcuts, one joint type, one finish. No set, no chair.",
+  "inv": "One friend sits on it for a month and reports back.",
   "r": [
    "",
    "December 12",
@@ -549,9 +579,10 @@ const CSART={
  plan:'<svg viewBox="0 0 220 140"><rect x="10" y="15" width="200" height="110" rx="8" fill="var(--surface)" stroke="var(--line)"/><rect x="30" y="30" width="80" height="80" fill="none" stroke="var(--ink)" stroke-width="3"/><rect x="30" y="30" width="40" height="40" fill="var(--accent)" opacity=".85"/><rect x="70" y="70" width="40" height="40" fill="var(--accent)" opacity=".35"/><line x1="130" y1="40" x2="190" y2="40" stroke="var(--line)" stroke-width="8"/><line x1="130" y1="60" x2="180" y2="60" stroke="var(--line)" stroke-width="8"/><line x1="130" y1="80" x2="190" y2="80" stroke="var(--line)" stroke-width="8"/><line x1="130" y1="100" x2="170" y2="100" stroke="var(--line)" stroke-width="8"/></svg>'};
 function csShow(k){ const d=CS[k]; document.querySelectorAll('#csTabs button').forEach((b,n)=>b.classList.toggle('on',n===k));
   document.getElementById('csCard').innerHTML='<div class="body"><p class="ttl">'+d.title+'</p>'+
-   '<div class="f"><b>Appetite</b><span>'+d.c+'</span></div><div class="f"><b>Slice</b><span>'+d.a+'</span></div>'+
-   '<div class="f"><b>Ship by</b><span>'+d.r[0]+'<span class="num">'+d.r[1]+'</span>'+d.r[2]+'</span></div>'+
-   '<div class="f"><b>First step</b><span>'+d.tools+'</span></div><div class="f"><b>Published at</b><span>'+d.proof+'</span></div></div>'+
+   '<div class="f"><b>Size</b><span>'+d.c+'</span></div><div class="f"><b>Hone</b><span>'+d.a+'</span></div>'+
+   '<div class="f"><b>Invite</b><span>'+d.inv+'</span></div>'+
+   '<div class="f"><b>Publish</b><span>'+d.r[0]+'<span class="num">'+d.r[1]+'</span>'+d.r[2]+'</span></div>'+
+   '<div class="f"><b>First step</b><span>'+d.tools+'</span></div></div>'+
    '<div class="visual">'+CSART[d.art]+'<small>The scope</small></div>'; }
 const BP={
  "elective": [
