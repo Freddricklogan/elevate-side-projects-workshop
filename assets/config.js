@@ -17,6 +17,8 @@ window.PW_CONFIG = {
   pollUrl: "",
   /* Microsoft Forms: Side Projects: Questions and Feedback (anyone can respond, no sign-in). */
   qaUrl: "",
+  /* Exit survey link from Career Services. When set, an "Open the exit survey" button appears on the exit-questions slide. */
+  exitUrl: "",
   /* Optional: Forms "Embed" code URLs (Collect responses > Embed) to show the form inside the page instead of a button. */
   pollEmbedUrl: "",
   qaEmbedUrl: "",

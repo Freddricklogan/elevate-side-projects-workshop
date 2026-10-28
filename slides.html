@@ -409,7 +409,22 @@
   </div>
 </section>
 
-<!-- 13 Check-in / close -->
+<!-- 13 Exit questions -->
+<section class="slide">
+  <div class="eyebrow reveal">0:43 · Exit questions · two minutes</div>
+  <h2 class="reveal" style="max-width:none">Four quick answers before you go.</h2>
+  <div class="box reveal" style="margin-top:14px">
+    <ol class="steps3">
+      <li>What is your project&rsquo;s thinnest working slice?</li>
+      <li>Write your two-sentence project description.</li>
+      <li>What four things does a first freelance gig need?</li>
+      <li>Which Illinois Tech pathway fits your project?</li>
+    </ol>
+    <p style="margin:16px 0 0"><a class="btn" id="exitBtn" href="#" target="_blank" rel="noopener noreferrer" hidden>Open the exit survey &rarr;</a></p>
+  </div>
+</section>
+
+<!-- 14 Check-in / close -->
 <section class="slide accent">
   <div class="eyebrow reveal">Check in for Elevate credit</div>
   <h2 class="reveal" style="max-width:none">Finished beats perfect.<br>Dated beats someday.</h2>
@@ -419,7 +434,7 @@
   </div>
 </section>
 
-<!-- 14 Questions -->
+<!-- 15 Questions -->
 <section class="slide ink">
   <div class="eyebrow reveal">Questions</div>
   <h2 class="reveal" style="max-width:none">What's still in the way?</h2>
@@ -455,6 +470,7 @@ const NOTES = [
  "Ask the question on the slide. Name the Elevate pieces: hackathons and competitions count, AWS Jam, Forage, the venture elective.",
  "Start the 8-minute timer. Walk the room. Push for a Size number and a Publish date. At 8:00 start the 3-minute swap: what would you cut?",
  "Checklist: read it fast. Point to the booking link; offer to pressure-test the scope and pick a pathway.",
+ "Two minutes, phones out. Read the four questions once; these match the Career Services exit survey. If the survey link is set in config.js, the button opens it.",
  "Leave the QR up. Check-in on 312 is what records the Elevate workshop credit.",
  "Open the Forms Responses tab or project the question board from the presenter view. Answer what you can live; follow up by email for the rest. Point to the booking QR for the one-on-one."
 ];
@@ -639,5 +655,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   let x0=null; document.addEventListener('touchstart',e=>x0=e.touches[0].clientX); document.addEventListener('touchend',e=>{ if(x0===null)return; const dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>60)go(dx<0?1:-1); x0=null; });
 });
 </script>
+<script>(function(){var u=(window.PW_CONFIG||{}).exitUrl;var a=document.getElementById("exitBtn");if(u&&a){a.href=u;a.hidden=false;}})();</script>
 </body>
 </html>
